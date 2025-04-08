@@ -6,7 +6,7 @@ const credentials = {
 
 export function renderStaff(staff)
 {
-	axios.get('http://localhost:3000/dashboard/rooms')
+	axios.get('http://localhost:3000/dashboard/staff')
 		.then(result => {
 			staff.innerHTML = '';
 	let html = `
