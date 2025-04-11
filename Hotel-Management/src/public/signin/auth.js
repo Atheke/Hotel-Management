@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         password: password
     };
  
-      console.log("Sending login request with:", { username, password, role });
+      console.log("Sending login request with:", { username, password});
 
-      if (!username || !password || !role) {
+      if (!username || !password ) {
         alert("Please fill in all fields.");
         return;
       }
