@@ -1,13 +1,11 @@
 
-const credentials = {
-	key : "staff info"
-};
 
 
 export function renderStaff(staff)
 {
-	axios.get('http://localhost:3000/dashboard/staff')
+	axios.get('http://localhost:3000/staff')
 		.then(result => {
+      console.log(result);
 			staff.innerHTML = '';
 	let html = `
 		<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
@@ -24,7 +22,7 @@ export function renderStaff(staff)
     </thead>
     <tbody>
 	`;
-	result.forEach(staff => {
+	result.data.forEach(staff => {
   html += `
     <tr class="border-t">
       <td class="py-2 px-4 text-center">${staff.staff_id}</td>

@@ -1,8 +1,8 @@
 
 export function renderGuests(guest)
-{axios.get('http://localhost:3000/dashboard/guest')
+{axios.get('http://localhost:3000/guest')
     .then(result => {
-        staff.innerHTML = '';
+        guest.innerHTML = '';
 let html = `
     <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
 <thead class="bg-gray-200 text-gray-700">
@@ -17,10 +17,10 @@ let html = `
 </thead>
 <tbody>
 `;
-result.forEach(guest => {
+result.data.forEach(guest => {
 html += `
 <tr class="border-t">
-  <td class="py-2 px-4 text-center">${guest.staff_id}</td>
+  <td class="py-2 px-4 text-center">${guest.guest_id}</td>
   <td class="py-2 px-4">${guest.full_name}</td>
   <td class="py-2 px-4">${guest .email}</td>
   <td class="py-2 px-4">${guest.phone}</td>
@@ -35,7 +35,8 @@ html += `
     </table>
 `;
 
-staff.innerHTML = html;
+guest.innerHTML = html;
+
         
     })
     .catch(error => {

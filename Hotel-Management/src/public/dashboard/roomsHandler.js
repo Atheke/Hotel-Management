@@ -1,8 +1,8 @@
 export function renderRooms(room)
 {
-    axios.get('http://localhost:3000/dashboard/rooms')
+    axios.get('http://localhost:3000/room')
 		.then(result => {
-			staff.innerHTML = '';
+			room.innerHTML = '';
 	let html = `
 		<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
     <thead class="bg-gray-200 text-gray-700">
@@ -19,7 +19,7 @@ export function renderRooms(room)
     </thead>
     <tbody>
 	`;
-	result.forEach(room => {
+	result.data.forEach(room => {
   html += `
     <tr class="border-t">
       <td class="py-2 px-4 text-center">${room.room_id}</td>
@@ -39,7 +39,7 @@ export function renderRooms(room)
 		</table>
 	`;
 
-	staff.innerHTML = html;
+	room.innerHTML = html;
 			
 		})
 		.catch(error => {
